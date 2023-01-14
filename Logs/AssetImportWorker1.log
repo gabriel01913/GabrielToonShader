@@ -163,3 +163,81 @@ Received Import Request.
   path: Assets
   artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79842766b460edbeab6a34051e857a80') in 0.010016 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1359.276353 seconds.
+  path: Assets/GabrielToonShader/Shader/FinalToonShaderDepthOnlyPass.hlsl
+  artifactKey: Guid(045ffcb4aebc5f542b0d4785e309cbba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GabrielToonShader/Shader/FinalToonShaderDepthOnlyPass.hlsl using Guid(045ffcb4aebc5f542b0d4785e309cbba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '169886f445a96c8e94432a926e689b6f') in 0.039810 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/GabrielToonShader/Shader/FinalToonShaderMetaPass.hlsl
+  artifactKey: Guid(392eb680f69f96741b4cbc27a0fb1b61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GabrielToonShader/Shader/FinalToonShaderMetaPass.hlsl using Guid(392eb680f69f96741b4cbc27a0fb1b61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '491e8aa2ab4eff3982be3d653320f2c3') in 0.001710 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GabrielToonShader/Shader/FinalToonShaderInputs.hlsl
+  artifactKey: Guid(623f9949e9ca2924c98960e7a3ff4f06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GabrielToonShader/Shader/FinalToonShaderInputs.hlsl using Guid(623f9949e9ca2924c98960e7a3ff4f06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adc6b384c23a768831ce7bdf55280621') in 0.002460 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005207 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image E:\Projetos Unity\GabrielToonShader\GabrielToonShader\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image E:\Projetos Unity\GabrielToonShader\GabrielToonShader\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.130 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1131ms)
+		BeginReloadAssembly (203ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (80ms)
+		EndReloadAssembly (831ms)
+			LoadAssemblies (111ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (279ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (380ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (75ms)
+				ProcessInitializeOnLoadAttributes (204ms)
+				ProcessInitializeOnLoadMethodAttributes (82ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.81 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5187 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (0.9 MB). Loaded Objects now: 5713.
+Memory consumption went from 195.4 MB to 194.5 MB.
+Total: 4.294700 ms (FindLiveObjects: 0.343600 ms CreateObjectMapping: 0.298400 ms MarkObjects: 3.260500 ms  DeleteObjects: 0.391400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
