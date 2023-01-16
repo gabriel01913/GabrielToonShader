@@ -8,13 +8,13 @@ This repository has a manual, you can acess here:
 **Gabriel Toon Shader Manual(Manual/GTShader_Manual.md)
 
 ## Portifolio
-##Genshin Style
+**Genshin Style**
 
 <img width = "480" src="Manual/Image/genshinStyleDemo.gif">
 
 [Click Here for better quality](https://youtu.be/UaOJl1PHFNs)
 
-##Guilty Gear Strive Style
+**Guilty Gear Strive Style**
 
 <img width = "480" src="Manual/Image/arcSystemStyleDemo.gif">
 
