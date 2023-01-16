@@ -33,6 +33,18 @@ Theres a lot of technics to achieve outlines, but in this repository I focus on 
 
 Genshin Impact is a game developed by miHoYo, is a chinese company, that make games with a anime style.
 The texture pipeline for achieve this visual, is not too mucn different then a PBR pipeline, their use the same pipeline texture, like albedo texture, normal map, height map, and so on.
-The differences is that their divide the enviroment and the character in two render pipelines, wheres the character pipeline focus and achieving and more acurrated anime style, and the enviroment focus on a more water paint style, that works really good together.
+The differences is that their divide the enviroment and the character in two render pipelines, wheres the character pipeline focus and achieving and more acurrated anime style, and the enviroment focus on a more waterpaint style, that works really good together.
+[Here you can watch the miHoYo talk about the render pipelines](https://www.youtube.com/watch?v=egHSE0dpWRw&ab_channel=UnityKorea)
+
+<img width = "800" src="Image/genshinayakaleakmain.jpg">
+
+<img width = "800" src="Image/genshinDemo.png">
+
 
 # Guilt Gear Strive Style
+
+Arc System Works, create something new on the realese of their game Guilty Gear Xrd -SIGN-, make 3D models look as like a 2D sprite.
+
+<img width = "800" src="Image/ggXrd.png">
+
+Is not perfect, but is impressive how close did they get.
