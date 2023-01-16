@@ -1041,3 +1041,9 @@ Received Import Request.
   path: Assets/GabrielToonShader/Scene/CharacterScene/GameObject Profile.asset
   artifactKey: Guid(513cb781c5af6604a878f40d37afac64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/GabrielToonShader/Scene/CharacterScene/GameObject Profile.asset using Guid(513cb781c5af6604a878f40d37afac64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '234cdc317c4fbf1189f5f0170a463f32') in 0.002133 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 98661.573117 seconds.
+  path: Assets/GabrielToonShader/Scene/SphereScene.unity
+  artifactKey: Guid(a45008cbbca61fc448db0c29ef2c9d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GabrielToonShader/Scene/SphereScene.unity using Guid(a45008cbbca61fc448db0c29ef2c9d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '097f39e4c4424367bc3e8466ae3371f6') in 0.025831 seconds 
