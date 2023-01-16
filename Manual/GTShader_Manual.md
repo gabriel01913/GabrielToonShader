@@ -1,5 +1,7 @@
 # Gabriel Toon Shader Manual
 
+**WORK IN PROGRESS**
+
 # Sumary
 - [What we trying to acomplish?](./GTShader_Manual.md#what-we-trying-to-acomplish?)
   - [Genshin Style](./GTShader_Manual.md#genshin-style)
@@ -31,9 +33,8 @@ Theres a lot of technics to achieve outlines, but in this repository I focus on 
 
 # Genshin Style
 
-Genshin Impact is a game developed by miHoYo, is a chinese company, that make games with a anime style.
-The texture pipeline for achieve this visual, is not too mucn different then a PBR pipeline, their use the same pipeline texture, like albedo texture, normal map, height map, and so on.
-The differences is that their divide the enviroment and the character in two render pipelines, wheres the character pipeline focus and achieving and more acurrated anime style, and the enviroment focus on a more waterpaint style, that works really good together.
+Genshin Impact is a game developed by miHoYo, is a Chinese company, that make games with an anime style. The texture pipeline for achieving this visual, is not too much different than a PBR pipeline, they use the same pipeline texture, like albedo texture, normal map, height map, and so on. The differences are that they divide the enviroment and the character in two render pipelines, where's the character pipeline focus and achieving and more accurate anime style, and the environment focuses on a more waterpaint style, that works really well together.
+
 [Here you can watch the miHoYo talk about the render pipelines](https://www.youtube.com/watch?v=egHSE0dpWRw&ab_channel=UnityKorea)
 
 <img width = "800" src="Image/genshinayakaleakmain.jpg">
@@ -43,8 +44,12 @@ The differences is that their divide the enviroment and the character in two ren
 
 # Guilt Gear Strive Style
 
-Arc System Works, create something new on the realese of their game Guilty Gear Xrd -SIGN-, make 3D models look as like a 2D sprite.
+Arc System Works, create something new on the release of their game Guilty Gear Xrd -SIGN-, making 3D models look as like a 2D sprite.
 
 <img width = "800" src="Image/ggXrd.png">
 
-Is not perfect, but is impressive how close did they get.
+Is not perfect, but is impressive how close did they get. They develop some technics to achieve this look by using a lot of data manipulation, using textures and vertex color as data to give artists the most control they can about the model, and how light will affect the model.
+
+[Here you can watch the 2015 GDC talk about their workflow](https://www.youtube.com/watch?v=yhGjCzxJV3E&ab_channel=GDC)
+
+I will try my best to explain the differences of each style in this manual, and how I incorporated this on my shader.
