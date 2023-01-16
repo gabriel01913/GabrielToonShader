@@ -5,6 +5,7 @@ This repository is the raw project create with Unity 2021.3.3f1, utilizing URP.
 The shader is compatible with URP, forward and deferred render path, SRP batching, realtime and baked additional lights.
 
 This repository has a manual, you can acess here:
+
 [Gabriel Toon Shader Manual](Manual/GTShader_Manual.md)
 
 ## Portifolio
