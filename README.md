@@ -9,10 +9,14 @@ This repository has a manual, you can acess here:
 
 ## Portifolio
 Genshin Style
+
 <img width = "480" src="Manual/Image/genshinStyleDemo.gif">
-Click Here for better quality(https://youtu.be/UaOJl1PHFNs)
+
+[Click Here for better quality](https://youtu.be/UaOJl1PHFNs)
 
 Guilty Gear Strive Style
+
 <img width = "480" src="Manual/Image/arcSystemStyleDemo.gif">
-Click Here for better quality(https://youtu.be/DzK9NVt1i4U)
+
+[Click Here for better quality](https://youtu.be/DzK9NVt1i4U)
 
