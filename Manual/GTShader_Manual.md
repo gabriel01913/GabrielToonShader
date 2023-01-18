@@ -7,13 +7,15 @@
   - [Genshin Style](./GTShader_Manual.md#genshin-style)
   - [Guilty Gear Strive Style](./GTShader_Manual.md#guilt-gear-strive-style)
 - [The Shader](./GTShader_Manual.md#the-shader)
-  - [Configuration](./GTShader_Manual.md#configuration)
+  - [Configuration](./GTShader_Manual.md##configuration)
   - [Shader Worflow](./GTShader_Manual.md##shader-worflow)
   - [Render Face](./GTShader_Manual.md##render-face)
   - [Surface Type](./GTShader_Manual.md##surface-type)
   - [Receive Shadows](./GTShader_Manual.md##receive-shadows)
-- [Is Face?](./GTShader_Manual.md##is-face?)
-- [Final Toon Shader Controller](./GTShader_Manual.md##final-toon-shader-controller)
+  - [Is Face](./GTShader_Manual.md##is-face)
+- [Is Face?](./GTShader_Manual.md#is-face?)
+  - [Shadow Mask Options](./GTShader_Manual.md##shadow-mask-options)
+- [Final Toon Shader Controller](./GTShader_Manual.md#final-toon-shader-controller)
 
 # What we trying to acomplish?
 
@@ -121,6 +123,12 @@ Additive blend example
 
 This option will enable/disable the material to receive shadows casted by others objects, this will not enalbe shadow casting(you enable/disable shadow casting in the rendering component).
 
+## Is Face
+
+This option will enable/disable the material to use a shadow mask texture for the face, instead of the normal lambert calculation.
+
+[Click here for mor information](./GTShader_Manual.md#is-face?)
+
 # Is Face?
 
 This option will enable/disable the shadow mask texture.
@@ -138,7 +146,7 @@ Example of the genshin mask.
 
 By enable this option, will appear new options and the texture slot for this mask.
 
-<img width = "400" src="Image/shaderEditorTextureShadowMask.jpg">
+<img width = "400" src="Image/shaderEditorConfigurationShadowMask.jpg">
 
 ## Shadow Mask Options
 
@@ -172,4 +180,15 @@ Heres some links can be helpfull for creating your won shadow mask.
 
 [Shader facial anime Genshin Impact in blender](https://www.youtube.com/watch?v=D3nEolOME50&t=0s&ab_channel=AnimeXDchannel)
 
+But, we need a C# script to constante update the vectors of the face, se i created the Final Toon Shader Controller, a componente that need to be added, as parent or in the same game object of the render.
+
 # Final Toon Shader Controller
+
+<img width = "400" src="Image/finalToonShader.jpg">
+
+<img width = "400" src="Image/finalToonShader2.jpg">
+
+We just need to move the game objects that represent the sun and the direction of the face to each slot, and its done.
+The other options is to change multiple materials in the same render. If the mesh has alot of submeshs or alot of differents materials for the same object, you can use this script to change all material as one. Click the Start editing to change the values and Stop editing when is done.
+
+The script will search for materials with the ToonShader shader, in the game object and its childs, but not parents.
