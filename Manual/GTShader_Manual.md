@@ -144,16 +144,34 @@ By enable this option, will appear new options and the texture slot for this mas
 
 **Mask Vertical** - This is a mask for the shadow in the face, but only in vertical position, theres no up down shadows.
 
-<img width = "400" src="Image/genshinShadowMask.gif">
 Shadow Mask Ramp example.
 
-<img width = "400" src="Image/genshinShadowMask2.gif">
+<img width = "400" src="Image/genshinShadowMask.gif">
+
 With Color.
 
-**Mask Horizontal** - 
+<img width = "400" src="Image/genshinShadowMask2.gif">
 
-**Both** - Use the both mask together.
+**Mask Horizontal** - This is a mask, is my own solution, for the shadow in the horizontal position, up down shadows. This mask dont exist in any of the workflow. Theres a catch in this mask, because i need to rotate the uvs, this mask works like a multidirectional shadow ramp.
+
+Shadow Mask Ramp example.
+
+<img width = "400" src="Image/genshinShadowMask3.gif">
+
+With Color.
+
+<img width = "400" src="Image/genshinShadowMask4.gif">
+
+**Both** - Use both mask together.
+
+Heres some links can be helpfull for creating your won shadow mask.
+
+[Get *PERFECT* Anime Face Shadows (Easier Way) in Blender](https://www.youtube.com/watch?v=x-K6bCAl6Qs&t=409s&ab_channel=2AM)
+[Blender Anime Face Texture Shadow ENG SUB | Nhij Quang](https://www.youtube.com/watch?v=VcaRAhif9ec&t=0s&ab_channel=NhijQuang)
+[Shader facial anime Genshin Impact in blender](https://www.youtube.com/watch?v=D3nEolOME50&t=0s&ab_channel=AnimeXDchannel)
 
 ## Enable Shadow Mask Gradient
+
+The shadow mask represents a linear ramp (from 0 to 1) to represents wich area of the face has light,
 
 # Final Toon Shader Controller
