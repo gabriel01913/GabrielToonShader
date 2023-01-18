@@ -62,19 +62,19 @@ Lets talk about the shader and the configuration.
 
 You can acess the shader in the Shader menu in the material, in the section **"GabrielShaders"**.
 
-<img width = "800" src="Image/menuShaders.jpg">
+<img width = "400" src="Image/menuShaders.jpg">
 
-<img width = "800" src="Image/menuShaders2.jpg">
+<img width = "400" src="Image/menuShaders2.jpg">
 
 And this is the custom edior for the shader.
 
-<img width = "800" src="Image/shaderEditor.jpg">
+<img width = "400" src="Image/shaderEditor.jpg">
 
 # Configuration
 
 The first foldout present is the **Configuration**, lets breakdown the options.
 
-<img width = "800" src="Image/shaderEditorConfiguration.jpg">
+<img width = "400" src="Image/shaderEditorConfiguration.jpg">
 
 **Shader Worflow**
     - **Standard**: This option is for a normal PBR workflow, like genshin style, this mode will not added new texture slots.
