@@ -138,7 +138,7 @@ Example of the genshin mask.
 
 By enable this option, will appear new options and the texture slot for this mask.
 
-<img width = "400" src="Image/shaderEditorTextureShadowMask2.jpg">
+<img width = "400" src="Image/shaderEditorTextureShadowMask.jpg">
 
 ## Shadow Mask Options
 
@@ -167,11 +167,9 @@ With Color.
 Heres some links can be helpfull for creating your won shadow mask.
 
 [Get *PERFECT* Anime Face Shadows (Easier Way) in Blender](https://www.youtube.com/watch?v=x-K6bCAl6Qs&t=409s&ab_channel=2AM)
+
 [Blender Anime Face Texture Shadow ENG SUB | Nhij Quang](https://www.youtube.com/watch?v=VcaRAhif9ec&t=0s&ab_channel=NhijQuang)
+
 [Shader facial anime Genshin Impact in blender](https://www.youtube.com/watch?v=D3nEolOME50&t=0s&ab_channel=AnimeXDchannel)
-
-## Enable Shadow Mask Gradient
-
-The shadow mask represents a linear ramp (from 0 to 1) to represents wich area of the face has light,
 
 # Final Toon Shader Controller
