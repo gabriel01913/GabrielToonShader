@@ -8,6 +8,11 @@
   - [Guilty Gear Strive Style](./GTShader_Manual.md#guilt-gear-strive-style)
 - [The Shader](./GTShader_Manual.md#the-shader)
  - [Configuration](./GTShader_Manual.md#configuration)
+  - [Shader Worflow](./GTShader_Manual.md##shader-worflow)
+  - [Render Face](./GTShader_Manual.md##render-face)
+  - [Surface Type](./GTShader_Manual.md##surface-type)
+  - [Receive Shadows](./GTShader_Manual.md##receive-shadows)
+- [Is Face?](./GTShader_Manual.md##is-face?)
 
 
 # What we trying to acomplish?
@@ -78,6 +83,53 @@ The first foldout present is the **Configuration**, lets breakdown the options.
 
 ## Shader Worflow
 
+This option will change some intern shader calculations and enable/disable texture slots.
+
 **Standard**: This option is for a normal PBR workflow, like genshin style, this mode will not added new texture slots.
 
 **GG Strive**: This option is for a Arc System workflow, like GG Strive, this mode will added new texture slots, that is need for this workflow, and will enable vertex colors ajusts.
+
+## Render Face
+
+This option is to choose which face will render.
+
+**Front**: This option will enable render the mesh front faces.
+
+**Back**: This option will enable render the mesh back faces.
+
+**Both**: This option will enable render both faces.
+
+## Surface Type
+
+This option is to choose the surface type.
+
+**Opaque**: This option the material is treated as opaque object.
+
+**Transparent**: This option the material is treated as transparent object, and will enable the blend mode option.
+
+<img width = "400" src="Image/shaderEditorConfigurationBlendMode.jpg">
+
+The transparency is controlled by the alpha channel of the base color.
+
+<img width = "400" src="Image/transparencyAlpha.jpg">
+Alpha blend example.
+
+<img width = "400" src="Image/transparencyAdditive.jpg">
+Additive blend example
+
+## Receive Shadows
+
+This option will enable/disable the material to receive shadows casted by others objects, this will not enalbe shadow casting(you enable/disable shadow casting in the rendering component).
+
+# Is Face?
+
+This option will enable/disable the shadow mask texture.
+
+When you make the shadows a harsh change without blend, artificats can appear, and the face is the most commum place to this to happen.
+
+<img width = "400" src="Image/faceArtifacts.jpg">
+
+Genshin workflow minimaze this by using a texture as a shadow mask ramp, especific for the face, so you bypass the artifacts. Arc System dont use texture, **they change the normals vectors for each vertex in the face, by hand**, (personal tough: so much respect for their work!!).
+
+<img width = "400" src="Image/genshinfacemask.jpg">
+Example of the genshin mask.
