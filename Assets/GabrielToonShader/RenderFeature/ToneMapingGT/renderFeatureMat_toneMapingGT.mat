@@ -42,7 +42,7 @@ Material:
     - _B: 0
     - _C: 0.6
     - _L: 0.2
-    - _M: 2.6
+    - _M: 1.42
     - _P: 1
     - _QueueControl: 0
     - _QueueOffset: 0
