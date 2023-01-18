@@ -5,7 +5,9 @@
 # Sumary
 - [What we trying to acomplish?](./GTShader_Manual.md#what-we-trying-to-acomplish?)
   - [Genshin Style](./GTShader_Manual.md#genshin-style)
-  - [Guilt Gear Strive Style](./GTShader_Manual.md#guilt-gear-strive-style)
+  - [Guilty Gear Strive Style](./GTShader_Manual.md#guilt-gear-strive-style)
+- [The Shader](./GTShader_Manual.md#the-shader)
+ - [Configuration](./GTShader_Manual.md#configuration)
 
 
 # What we trying to acomplish?
@@ -42,7 +44,7 @@ Genshin Impact is a game developed by miHoYo, is a Chinese company, that make ga
 <img width = "800" src="Image/genshinDemo.png">
 
 
-# Guilt Gear Strive Style
+# Guilty Gear Strive Style
 
 Arc System Works, create something new on the release of their game Guilty Gear Xrd -SIGN-, making 3D models look as like a 2D sprite.
 
@@ -53,3 +55,27 @@ Is not perfect, but is impressive how close did they get. They develop some tech
 [Here you can watch the 2015 GDC talk about their workflow](https://www.youtube.com/watch?v=yhGjCzxJV3E&ab_channel=GDC)
 
 I will try my best to explain the differences of each style in this manual, and how I incorporated this on my shader.
+
+# The Shader
+
+Lets talk about the shader and the configuration.
+
+You can acess the shader in the Shader menu in the material, in the section **"GabrielShaders"**.
+
+<img width = "800" src="Image/menuShaders.jpg">
+
+<img width = "800" src="Image/menuShaders2.jpg">
+
+And this is the custom edior for the shader.
+
+<img width = "800" src="Image/shaderEditor.jpg">
+
+# Configuration
+
+The first foldout present is the **Configuration**, lets breakdown the options.
+
+<img width = "800" src="Image/shaderEditorConfiguration.jpg">
+
+**Shader Worflow**
+    - **Standard**: This option is for a normal PBR workflow, like genshin style, this mode will not added new texture slots.
+    - **GG Strive**: This option is for a Arc System workflow, like GG Strive, this mode will added new texture slots, that is need for this workflow, and will enable vertex colors ajusts.
