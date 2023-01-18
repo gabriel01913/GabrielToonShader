@@ -76,8 +76,8 @@ The first foldout present is the **Configuration**, lets breakdown the options.
 
 <img width = "400" src="Image/shaderEditorConfiguration.jpg">
 
-**Shader Worflow**
+## Shader Worflow
 
-    - **Standard**: This option is for a normal PBR workflow, like genshin style, this mode will not added new texture slots.
-    
-    - **GG Strive**: This option is for a Arc System workflow, like GG Strive, this mode will added new texture slots, that is need for this workflow, and will enable vertex colors ajusts.
+**Standard**: This option is for a normal PBR workflow, like genshin style, this mode will not added new texture slots.
+
+**GG Strive**: This option is for a Arc System workflow, like GG Strive, this mode will added new texture slots, that is need for this workflow, and will enable vertex colors ajusts.
