@@ -11,9 +11,6 @@ public class FinalToonShaderControllerEditor : Editor
     SerializedObject m_Object;
     SerializedProperty _sun;
     SerializedProperty _faceGameObject;
-    SerializedProperty _gradient;
-    SerializedProperty _gradientMaterial;
-    SerializedProperty _gradientOption;
     SerializedProperty _alphaClip;
     SerializedProperty _alphaClipThreshold;
     SerializedProperty _resolution;
@@ -88,26 +85,17 @@ public class FinalToonShaderControllerEditor : Editor
             dictionaryFoldouts.Add(target, foldoutBools);
         }        
 
-        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider); 
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
-        #region Gradient Foldout
-        dictionaryFoldouts[target].gradientToolFoldout = EditorGUILayout.Foldout(
-            dictionaryFoldouts[target].gradientToolFoldout, 
-            new GUIContent(dictionaryFoldouts[target].labels[2], dictionaryFoldouts[target].toolTips[2])
-        );       
-        if(dictionaryFoldouts[target].gradientToolFoldout)
+        EditorGUI.BeginChangeCheck();
+        EditorGUILayout.PropertyField(_sun);
+        EditorGUILayout.PropertyField(_faceGameObject);
+        if(EditorGUI.EndChangeCheck())
         {
-            EditorGUILayout.PropertyField(_gradient);
-            EditorGUILayout.PropertyField(_gradientMaterial);
-            EditorGUILayout.PropertyField(_gradientOption);
-            if(GUILayout.Button("Create Gradient"))
-            {
-                toonController.CreateGradient();
-            }
+            m_Object.ApplyModifiedProperties();
         }
-        #endregion
         
-        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider); 
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
         #region Edit Button
         GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
@@ -138,14 +126,7 @@ public class FinalToonShaderControllerEditor : Editor
             new GUIContent(dictionaryFoldouts[target].labels[0], dictionaryFoldouts[target].toolTips[0])
         );
         if(dictionaryFoldouts[target].configurationFoldout)
-        {
-            EditorGUI.BeginChangeCheck();
-            EditorGUILayout.PropertyField(_sun);
-            EditorGUILayout.PropertyField(_faceGameObject);
-            if(EditorGUI.EndChangeCheck())
-            {
-                m_Object.ApplyModifiedProperties();
-            }
+        {            
             EditorGUI.BeginChangeCheck();
             dictionaryFoldouts[target].workflowEnum = (ShaderWorkflow)EditorGUILayout.EnumPopup(
                 new GUIContent(dictionaryFoldouts[target].labels[1], dictionaryFoldouts[target].toolTips[1]), 
@@ -378,9 +359,6 @@ public class FinalToonShaderControllerEditor : Editor
         m_Object = new SerializedObject(target);
         _sun = m_Object.FindProperty("_sun");
         _faceGameObject = m_Object.FindProperty("_faceGameObject");
-        _gradient = m_Object.FindProperty("_gradient");
-        _gradientMaterial = m_Object.FindProperty("_gradientMaterial");
-        _gradientOption = m_Object.FindProperty("_gradientOption");
         _alphaClip = m_Object.FindProperty("alphaClip");
         _alphaClipThreshold = m_Object.FindProperty("alphaClipThreshold");
         _BaseTint = m_Object.FindProperty("_BaseTint");

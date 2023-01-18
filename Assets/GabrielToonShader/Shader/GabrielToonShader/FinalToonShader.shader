@@ -3,7 +3,6 @@ Shader "GabrielShaders/ToonShader"
     Properties
     {
         [HideInInspector][ToggleOff]_Isface ("Is Face", Float) = 0
-        [HideInInspector][ToggleOff]_ShadowMaskAjust ("Use Shadow Mask Gradient Ajust", Float) = 0 
         [HideInInspector][Enum(Face Shadow Mask Horizontal, 0, Face Shadow Mask Multidirectional, 1, Both, 2)]_FSMEnum("Face Shadow Mask Options", Float) = 0
         [HideInInspector][ToggleOff]_GGStriveWorkFlow ("Use GGStrive Work Flow", Float) = 1
         [HideInInspector]_DistortionFactor("Distortion Factor", Range(0,1)) = 0
@@ -18,12 +17,8 @@ Shader "GabrielShaders/ToonShader"
         [HideInInspector]_DetailUV("UV Channel", Float) = 3
         [HideInInspector]_FaceShadowMask  ("Face Shadow Mask Vertical Texture", 2D) = "white" {}
         [HideInInspector]_FaceShadowMaskUV("UV Channel", Float) = 0
-        [HideInInspector]_FaceShadowMaskGradient("Face Shadow Vertical Gradient", 2D) = "white" {}
-        [HideInInspector]_FaceShadowMaskGradientUV("UV Channel", Float) = 0
         [HideInInspector]_FaceShadowMask2  ("Face Shadow 2 Mask Horizontal Texture", 2D) = "white" {}
         [HideInInspector]_FaceShadowMask2UV("UV Channel", Float) = 0
-        [HideInInspector]_FaceShadowMask2Gradient("Face Shadow Horizontal Gradient", 2D) = "white" {}
-        [HideInInspector]_FaceShadowMask2GradientUV("UV Channel", Float) = 0
         [HideInInspector]_Emission ("Emission Texture", 2D) = "black" {}
         [HideInInspector]_EmissionUV("UV Channel", Float) = 0
         [HideInInspector]_NormalMap ("Normal Map", 2D) = "bump" {}
@@ -53,10 +48,10 @@ Shader "GabrielShaders/ToonShader"
         [HideInInspector]_EmissionSaturation("Emission Color Saturation", Range(0,5)) = 1
 
         //Head        
-        [HideInInspector]_RightVector("Base Color Tint ", Vector) = (1,0,0,0)
-        [HideInInspector]_UPVector("Base Color Tint ", Vector) = (0,1,0,0)
-        [HideInInspector]_FowardVector("Base Color Tint ", Vector) = (0,0,1,0)
-        [HideInInspector]_SunEuler("Base Color Tint ", Vector) = (0,0,1,0)
+        _RightVector("Right Vector", Vector) = (1,0,0,0)
+        [HideInInspector]_UPVector("UP Vector", Vector) = (0,1,0,0)
+        [HideInInspector]_FowardVector("Foward Vector", Vector) = (0,0,1,0)
+        [HideInInspector]_SunEuler("Sun Euler", Vector) = (0,0,1,0)
         [HideInInspector]_Remap("Remap Vector Rotation", Vector) = (-1,2.5,0,0)
 
         //Control        

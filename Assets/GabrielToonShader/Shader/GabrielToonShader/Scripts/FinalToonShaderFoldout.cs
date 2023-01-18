@@ -96,7 +96,6 @@ namespace FinalToonShader{
         public UVChannels ParallaxMapUVChannels = UVChannels.UV0;
         public ShadowMaskOptions shadowMaskOptions = ShadowMaskOptions.MaskVertical;
         public bool textureFoldout = false;
-        public bool gradientToolFoldout = false;
         public bool editingState = false;    
         public bool colorOptionsFoldout = false;
         public bool additionalColorsFoldout = false;
@@ -106,7 +105,6 @@ namespace FinalToonShader{
         public string[] labels = new string[]{
             "Configuration",
             "Shader Workflow",
-            "Gradient Tools",
             "Base Colors",
             "Additional Colors",
             "Ramp Ajusts",
@@ -118,7 +116,6 @@ namespace FinalToonShader{
         public string[] toolTips = new string[]{
             "Base Configuration for the shader to work properly",
             "Standard workflow for more base material setup or Guilt Gear Striver texture/vertex color workflow",
-            "Gradient Tools to adjust face shadow mask",
             "Base shaded colors",
             "Additional shaded colors",
             "Ajust ramp values and offsets",

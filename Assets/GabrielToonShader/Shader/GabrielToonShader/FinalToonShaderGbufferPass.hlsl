@@ -529,25 +529,6 @@ half ShadowMask(Interpolators output, DotData dotInputs, LightInputs lightInputs
     float4 SM_Text_VerticalFliped = tex2D(_FaceShadowMask, output.uv0.xy);
     #endif
 
-    if(_ShadowMaskAjust && _Isface)
-    {
-        half ilmG = SM_Text_Vertical.x;
-        ilmG = pow(ilmG, 1.1/2.2);
-        ilmG = clamp(((ilmG * 2) - 1),0,1);
-        #if defined(_CUSTOM_UV)
-        float faceShadowMaskGradientUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _FaceShadowMaskGradientUV);
-        half2 gradientCustomUV = CustomUV(faceShadowMaskGradientUV , output);
-        half2 gradientUV = half2(SM_Text_Vertical.x, gradientCustomUV.y);
-        SM_Text_Vertical = tex2D(_FaceShadowMaskGradient, gradientUV);
-        gradientUV = half2(SM_Text_VerticalFliped.x, gradientCustomUV.y);
-        #else
-        half2 gradientUV = half2(SM_Text_Vertical.x, output.uv0.y);
-        SM_Text_Vertical = tex2D(_FaceShadowMaskGradient, gradientUV);
-        gradientUV = half2(SM_Text_VerticalFliped.x, output.uv0.y);
-        #endif
-        SM_Text_VerticalFliped = tex2D(_FaceShadowMaskGradient, gradientUV);
-    }
-
     half NdotL = dotInputs.NdL;
     half3 lightDir = lightInputs.mainLightDirection;
     float3 rightVector = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _RightVector);
@@ -597,19 +578,7 @@ half ShadowMask(Interpolators output, DotData dotInputs, LightInputs lightInputs
     float4 SM_Text_Horizontal = tex2D(_FaceShadowMask2, rotateUV.xy);
     float2 uvHorizontalFilped = half2(rotateUV.x, 1 - rotateUV.y);
     float4 SM_Text_HorizontalFliped = tex2D(_FaceShadowMask2, uvHorizontalFilped.xy);    
-    float shadowHorizontal = halfLFUPdotL > 0 ? SM_Text_HorizontalFliped.x : SM_Text_Horizontal.x;
-
-    if(_ShadowMaskAjust && _Isface)
-    {
-        #if defined(_CUSTOM_UV)
-        float faceShadowMask2GradientUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _FaceShadowMask2GradientUV);
-        half2 customgradientUV2 = CustomUV(faceShadowMask2GradientUV , output);
-        float2 gradientUV2 = float2(shadowHorizontal , customgradientUV2.y);
-        #else
-        float2 gradientUV2 = float2(shadowHorizontal ,output.uv0.y);
-        #endif
-        shadowHorizontal = tex2D(_FaceShadowMask2Gradient, gradientUV2).x;        
-    }
+    float shadowHorizontal = halfLFUPdotL > 0 ? SM_Text_HorizontalFliped.x : SM_Text_Horizontal.x;    
 
     float stepShadowHorizontal = step(RemapValue(BWdL, -1, 1, 0, 1), shadowHorizontal);
     if(shadow2Ramp)

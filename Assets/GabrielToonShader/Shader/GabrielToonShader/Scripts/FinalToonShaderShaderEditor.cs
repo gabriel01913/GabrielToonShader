@@ -14,16 +14,13 @@ public class FinalToonShaderShaderEditor : ShaderGUI
     MaterialProperty _GGStriveWorkFlow;
     MaterialProperty _Isface;
     MaterialProperty _FSMEnum;
-    MaterialProperty _ShadowMaskAjust;
     MaterialProperty _Cull;
     MaterialProperty _BaseColor;
     MaterialProperty _ShadowColor;
     MaterialProperty _ILM;
     MaterialProperty _Detail;
     MaterialProperty _FaceShadowMask;
-    MaterialProperty _FaceShadowMaskGradient;
     MaterialProperty _FaceShadowMask2;
-    MaterialProperty _FaceShadowMask2Gradient;
     MaterialProperty _Emission;
     MaterialProperty _NormalMap;
     MaterialProperty _Parallax;
@@ -165,8 +162,7 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
             new GUIContent("Shadow Mask Options", "Select the shadow Mask options"), 
             dictionaryFoldouts[target].shadowMaskOptions
             );
-            target.SetFloat("_FSMEnum", (int)dictionaryFoldouts[target].shadowMaskOptions);
-            CreatePropertyToogle("_ShadowMaskAjust","Enable Shadow Mask Gradient", "Mark this if gona use gradient texture to smoothe the texture shadow mask", materialEditor);
+            target.SetFloat("_FSMEnum", (int)dictionaryFoldouts[target].shadowMaskOptions);            
         }
         if(EditorGUI.EndChangeCheck() && Convert.ToBoolean(target.GetFloat("_Isface")))
         {
@@ -183,7 +179,7 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
     #region Texture Foldout
     dictionaryFoldouts[target].textureFoldout = EditorGUILayout.Foldout(
         dictionaryFoldouts[target].textureFoldout, 
-        new GUIContent(dictionaryFoldouts[target].labels[8], dictionaryFoldouts[target].toolTips[8])
+        new GUIContent(dictionaryFoldouts[target].labels[7], dictionaryFoldouts[target].toolTips[7])
     );
     
     if(dictionaryFoldouts[target].textureFoldout)
@@ -198,26 +194,14 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
             if(dictionaryFoldouts[target].shadowMaskOptions == ShadowMaskOptions.MaskVertical)
             {
                 materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask", "Ramp mask for shadow face"), _FaceShadowMask); 
-                if(target.GetFloat("_ShadowMaskAjust") > 0)
-                {
-                    materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask Gradient", "Gradient to smooth the texture ramp, use gradient tool for this"), _FaceShadowMaskGradient);
-                }               
+                              
             }else if(dictionaryFoldouts[target].shadowMaskOptions == ShadowMaskOptions.MaskMultidirectional)
             {
-                materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask 2", "Ramp mask for shadow face"), _FaceShadowMask2);
-                if(target.GetFloat("_ShadowMaskAjust") > 0)
-                {
-                    materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask 2 Gradient", "Gradient to smooth the texture ramp, use gradient tool for this"), _FaceShadowMask2Gradient);
-                }
+                materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask 2", "Ramp mask for shadow face"), _FaceShadowMask2);                
             
             }else{
                 materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask", "Ramp mask for shadow face"), _FaceShadowMask);
-                materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask 2", "Ramp mask for shadow face"), _FaceShadowMask2);
-                if(target.GetFloat("_ShadowMaskAjust") > 0)
-                {
-                    materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask Gradient", "Gradient to smooth the texture ramp, use gradient tool for this"), _FaceShadowMaskGradient);
-                    materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask 2 Gradient", "Gradient to smooth the texture ramp, use gradient tool for this"), _FaceShadowMask2Gradient);
-                }
+                materialEditor.TexturePropertySingleLine(new GUIContent("Shadow Mask 2", "Ramp mask for shadow face"), _FaceShadowMask2);                
             }            
         }
 
@@ -367,23 +351,11 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
             );
             target.SetFloat("_FaceShadowMaskUV", (int)dictionaryFoldouts[target].FaceShadowMaskUVChannels);
 
-            dictionaryFoldouts[target].FaceShadowMaskGradientUVChannels = (UVChannels)EditorGUILayout.EnumPopup(
-            new GUIContent("Face Shadow Gradient Texture Channel", "Shadow Texture UV Channel"), 
-            dictionaryFoldouts[target].FaceShadowMaskGradientUVChannels
-            );
-            target.SetFloat("_FaceShadowMaskGradientUV", (int)dictionaryFoldouts[target].FaceShadowMaskGradientUVChannels);
-
             dictionaryFoldouts[target].FaceShadowMask2UVChannels = (UVChannels)EditorGUILayout.EnumPopup(
             new GUIContent("Face Shadow Mask 2 Texture Channel", "ILM Texture UV Channel"), 
             dictionaryFoldouts[target].FaceShadowMask2UVChannels
             );
             target.SetFloat("_FaceShadowMask2UV", (int)dictionaryFoldouts[target].FaceShadowMask2UVChannels);
-
-            dictionaryFoldouts[target].FaceShadowMask2GradientUVChannels = (UVChannels)EditorGUILayout.EnumPopup(
-            new GUIContent("Face Shadow Mask 2 Gradient Texture Channel", "Shadow Texture UV Channel"), 
-            dictionaryFoldouts[target].FaceShadowMask2GradientUVChannels
-            );
-            target.SetFloat("_FaceShadowMask2GradientUV", (int)dictionaryFoldouts[target].FaceShadowMask2GradientUVChannels);
 
             dictionaryFoldouts[target].EmissionUVChannels = (UVChannels)EditorGUILayout.EnumPopup(
             new GUIContent("Emission Texture Channel", "Shadow Texture UV Channel"), 
@@ -457,7 +429,6 @@ void GetProperties(MaterialProperty[] properties)
     _GGStriveWorkFlow = ShaderGUI.FindProperty("_GGStriveWorkFlow", properties);
     _Isface = ShaderGUI.FindProperty("_Isface", properties);
     _FSMEnum = ShaderGUI.FindProperty("_FSMEnum", properties);
-    _ShadowMaskAjust = ShaderGUI.FindProperty("_ShadowMaskAjust", properties);
     _Cull = ShaderGUI.FindProperty("_Cull", properties);
 
     _BaseColor = ShaderGUI.FindProperty("_BaseColor", properties);
@@ -465,9 +436,7 @@ void GetProperties(MaterialProperty[] properties)
     _ILM = ShaderGUI.FindProperty("_ILM", properties);
     _Detail = ShaderGUI.FindProperty("_Detail", properties);
     _FaceShadowMask = ShaderGUI.FindProperty("_FaceShadowMask", properties);
-    _FaceShadowMaskGradient = ShaderGUI.FindProperty("_FaceShadowMaskGradient", properties);
     _FaceShadowMask2 = ShaderGUI.FindProperty("_FaceShadowMask2", properties);
-    _FaceShadowMask2Gradient = ShaderGUI.FindProperty("_FaceShadowMask2Gradient", properties);
     _Emission = ShaderGUI.FindProperty("_Emission", properties);
     _NormalMap = ShaderGUI.FindProperty("_NormalMap", properties);
     _Parallax = ShaderGUI.FindProperty("_Parallax", properties);

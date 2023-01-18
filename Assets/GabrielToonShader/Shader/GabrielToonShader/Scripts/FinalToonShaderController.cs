@@ -15,14 +15,6 @@ public class FinalToonShaderController : MonoBehaviour
     static Shader finalToonShader;
     public GameObject _sun;
     public GameObject _faceGameObject;
-    [SerializeField]  
-    Gradient _gradient;
-    [SerializeField]
-    Material _gradientMaterial;
-    GradientMaker _gradientMaker;
-    [SerializeField]
-    GradientMaker.Option _gradientOption = GradientMaker.Option.ShadowMaskHorizontal;
-    int _resolution = 256;
     [SerializeField]
     [Range(0,1)]
     float _distortionFactor = 0;
@@ -153,6 +145,10 @@ public class FinalToonShaderController : MonoBehaviour
     
 #endregion
 
+    private void Update() {
+        UpdateFaceVectors();        
+    }
+
     void UpdateFaceVectors()
     {
         if(_faceGameObject != null && _sun != null)
@@ -160,45 +156,68 @@ public class FinalToonShaderController : MonoBehaviour
             _FowardVector = _faceGameObject.transform.forward;
             _RightVector = _faceGameObject.transform.right;
             _UPVector = _faceGameObject.transform.up;
-            _SunEuler = new Vector3(_sun.transform.rotation.x, _sun.transform.rotation.y,_sun.transform.rotation.z);
-        }      
+            _SunEuler = new Vector3(_sun.transform.rotation.x, _sun.transform.rotation.y,_sun.transform.rotation.z);          
+            List<Material> materials = new List<Material>();
+            materials = GetMaterialsInChildren();
+            for(int i = 0; i < materials.Count; i++)
+            {
+                Material newMat = materials[i];
+                if(materials[i] != null)
+                {                   
+                    if(materials[i].GetFloat("_Isface") > 0)
+                    {
+                        newMat.SetVector("_FowardVector", _FowardVector);            
+                        newMat.SetVector("_RightVector", _RightVector);
+                        newMat.SetVector("_UPVector", _UPVector);
+                        newMat.SetVector("_SunEuler", _SunEuler);                          
+                    }                    
+                }             
+            } 
+        }         
     }
     
     List<Material> GetMaterialsInChildren()
-    {        
-        List<Material> childMaterials = new List<Material>();
+    {
+        if(finalToonShader == null)
+        {
+            finalToonShader = Shader.Find("GabrielShaders/ToonShader");
+        }        
+        List<Material> materials = new List<Material>();
+        Renderer[] root = GetComponents<Renderer>();
         Renderer[] childs = GetComponentsInChildren<Renderer>();
+        foreach(Renderer rend in root)
+        {
+            foreach(Material mat in rend.sharedMaterials)
+            {
+                if(mat.shader == finalToonShader)
+                {
+                    materials.Add(mat);
+                }
+            }            
+        }
+
         foreach(Renderer rend in childs)
         {
             foreach(Material mat in rend.sharedMaterials)
             {
                 if(mat.shader == finalToonShader)
                 {
-                    childMaterials.Add(mat);
+                    materials.Add(mat);
                 }
             }            
         }
-        return childMaterials;
-    }
-    
-    public void CreateGradient()
-    {
-        _gradientMaker = new GradientMaker(_gradient, _gradientMaterial, _gradientOption, _resolution);
-        _gradientMaker.CreateGradient();      
-    }
+        return materials;
+    }    
     
     List<Material> UpdateMaterialSettings()
     {
-        if(finalToonShader == null)
-        finalToonShader = Shader.Find("Unlit/FinalToonShader");
-        List<Material> materials = new List<Material>();
+        List<Material> materials = new List<Material>(); 
         materials = GetMaterialsInChildren();
         for(int i = 0; i < materials.Count; i++)
         {
             Material newMat = materials[i];
             if(materials[i] != null)
             {
-                Debug.Log(_useGGStriveWorkflow);
                 KeywordHandle("_GGSTRIVEWORKFLOW", _useGGStriveWorkflow, newMat);
                 KeywordHandle("_DEBUG", _Debug, newMat);
                 KeywordHandle("_ADDITIONAL_LIGHT_REPLACE", _AdditionalLightReplaceColor, newMat);
@@ -245,9 +264,7 @@ public class FinalToonShaderController : MonoBehaviour
                 newMat.SetFloat("_ILMUV", (int)ILMUVChannels);
                 newMat.SetFloat("_DetailUV", (int)DetailUVChannels);
                 newMat.SetFloat("_FaceShadowMaskUV", (int)FaceShadowMaskUVChannels);
-                newMat.SetFloat("_FaceShadowMaskGradientUV", (int)FaceShadowMaskGradientUVChannels);
                 newMat.SetFloat("_FaceShadowMask2UV", (int)FaceShadowMask2UVChannels);
-                newMat.SetFloat("_FaceShadowMask2GradientUV", (int)FaceShadowMask2GradientUVChannels);
                 newMat.SetFloat("_EmissionUV", (int)EmissionUVChannels);
                 newMat.SetFloat("_NormalMapUV", (int)NormalMapUVChannels);
                 newMat.SetFloat("_ParallaxMapUV", (int)ParallaxMapUVChannels);
@@ -255,14 +272,6 @@ public class FinalToonShaderController : MonoBehaviour
                 newMat.SetFloat("_AlphaClip", Convert.ToSingle(alphaClip));
                 newMat.SetFloat("_AlphaClipChannel", (int)alphaClipChannel);
                 newMat.SetFloat("_AlphaClipThreshold", alphaClipThreshold);
-            }
-            if(materials[i] != null && materials[i].GetFloat("_Isface") > 0)
-            {
-                UpdateFaceVectors();
-                newMat.SetVector("_FowardVector", _FowardVector);            
-                newMat.SetVector("_RightVector", _RightVector);
-                newMat.SetVector("_UPVector", _UPVector);
-                newMat.SetVector("_SunEuler", _SunEuler);
             }
             ChangeSurfaceType(newMat);
             materials[i] = newMat;
@@ -340,9 +349,5 @@ public class FinalToonShaderController : MonoBehaviour
 
     void UpdateMaterial(){       
         SaveMaterials(UpdateMaterialSettings());
-    }
-
-    void Update() {
-        UpdateFaceVectors();        
     }
 }
