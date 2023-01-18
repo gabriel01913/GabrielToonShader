@@ -5,7 +5,7 @@
 # Sumary
 - [What we trying to acomplish?](./GTShader_Manual.md#what-we-trying-to-acomplish?)
   - [Genshin Style](./GTShader_Manual.md#genshin-style)
-  - [Guilty Gear Strive Style](./GTShader_Manual.md#guilt-gear-strive-style)
+  - [Guilty Gear Strive Style](./GTShader_Manual.md#guilty-gear-strive-style)
 - [The Shader](./GTShader_Manual.md#the-shader)
   - [Configuration](./GTShader_Manual.md#configuration)
   - [Shader Worflow](./GTShader_Manual.md#shader-worflow)
@@ -13,7 +13,7 @@
   - [Surface Type](./GTShader_Manual.md#surface-type)
   - [Receive Shadows](./GTShader_Manual.md#receive-shadows)
   - [Is Face](./GTShader_Manual.md#is-face)
-- [Is Face?](./GTShader_Manual.md#is-face?)
+- [Shadow Mask](./GTShader_Manual.md#shadow-mask)
   - [Shadow Mask Options](./GTShader_Manual.md#shadow-mask-options)
 - [Final Toon Shader Controller](./GTShader_Manual.md#final-toon-shader-controller)
 
@@ -77,7 +77,7 @@ And this is the custom edior for the shader.
 
 <img width = "400" src="Image/shaderEditor.jpg">
 
-# Configuration
+## Configuration
 
 The first foldout present is the **Configuration**, lets breakdown the options.
 
@@ -127,9 +127,9 @@ This option will enable/disable the material to receive shadows casted by others
 
 This option will enable/disable the material to use a shadow mask texture for the face, instead of the normal lambert calculation.
 
-[Click here for mor information](./GTShader_Manual.md#is-face?)
+[Click here for mor information](./GTShader_Manual.md#shadow-mask)
 
-# Is Face?
+# Shadow Mask
 
 This option will enable/disable the shadow mask texture.
 
