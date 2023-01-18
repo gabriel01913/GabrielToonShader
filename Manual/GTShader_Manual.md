@@ -7,12 +7,13 @@
   - [Genshin Style](./GTShader_Manual.md#genshin-style)
   - [Guilty Gear Strive Style](./GTShader_Manual.md#guilty-gear-strive-style)
 - [The Shader](./GTShader_Manual.md#the-shader)
-  - [Configuration](./GTShader_Manual.md#configuration)
+- [Configuration](./GTShader_Manual.md#configuration)
   - [Shader Worflow](./GTShader_Manual.md#shader-worflow)
   - [Render Face](./GTShader_Manual.md#render-face)
   - [Surface Type](./GTShader_Manual.md#surface-type)
   - [Receive Shadows](./GTShader_Manual.md#receive-shadows)
   - [Is Face](./GTShader_Manual.md#is-face)
+- [Textures](./GTShader_Manual.md#textures)
 - [Shadow Mask](./GTShader_Manual.md#shadow-mask)
   - [Shadow Mask Options](./GTShader_Manual.md#shadow-mask-options)
 - [Final Toon Shader Controller](./GTShader_Manual.md#final-toon-shader-controller)
@@ -119,6 +120,14 @@ Alpha blend example.
 <img width = "400" src="Image/transparencyAdditive.jpg">
 Additive blend example
 
+## Alpha Clip
+
+This option will enable/disable the material to clip the fragments, based on a texture mask. When enable new options will appear.
+**Alpha Clip Channel** - In wich texture alpha channel has the mask for the clip.
+**Clip Threshold** - This is the clip threshold.
+
+<img width = "400" src="Image/alphaclip.jpg">
+
 ## Receive Shadows
 
 This option will enable/disable the material to receive shadows casted by others objects, this will not enalbe shadow casting(you enable/disable shadow casting in the rendering component).
@@ -128,6 +137,13 @@ This option will enable/disable the material to receive shadows casted by others
 This option will enable/disable the material to use a shadow mask texture for the face, instead of the normal lambert calculation.
 
 [Click here for mor information](./GTShader_Manual.md#shadow-mask)
+
+# Textures
+This section is where you inform the textures.
+
+**Base Texture** - The base color map, lit map, albedo map, theres alot of name for this map, but is the map theres has the lit color of the material. RGB is the colors, and Alpha is genshin workflow is the default for the alpha clip mask, in Arc System workflow the Alpha channel is used for fresnel light intensity, black dont have fresnel white has full intensity.
+
+**Emission Texture** - The emission map, is the texture that contains the emission information. The RGB contains the colors, and Alpha channel the mask.
 
 # Shadow Mask
 
@@ -146,11 +162,11 @@ Example of the genshin mask.
 
 By enable this option, will appear new options and the texture slot for this mask.
 
-<img width = "400" src="Image/shaderEditorConfigurationShadowMask.jpg">
+<img width = "600" src="Image/shaderEditorConfigurationShadowMask.jpg">
 
 ## Shadow Mask Options
 
-**Mask Vertical** - This is a mask for the shadow in the face, but only in vertical position, theres no up down shadows.
+**Mask Vertical** - This is a mask for the shadow in the face, but only in vertical position, theres no up down shadows. The gradient is from 0 to 1 from left to right.
 
 Shadow Mask Ramp example.
 
@@ -160,7 +176,7 @@ With Color.
 
 <img width = "400" src="Image/genshinShadowMask2.gif">
 
-**Mask Horizontal** - This is a mask, is my own solution, for the shadow in the horizontal position, up down shadows. This mask dont exist in any of the workflow. Theres a catch in this mask, because i need to rotate the uvs, this mask works like a multidirectional shadow ramp.
+**Mask Multidirectional** - This is a mask, is my own solution, for the shadow in the horizontal position, up down shadows. This mask dont exist in any of the workflow. Theres a catch in this mask, because i need to rotate the uvs, this mask works like a multidirectional shadow ramp.
 
 Shadow Mask Ramp example.
 
@@ -169,6 +185,10 @@ Shadow Mask Ramp example.
 With Color.
 
 <img width = "400" src="Image/genshinShadowMask4.gif">
+
+Different from the vertifical texture, this option use texture that is just a gradient from top to bottom.
+
+<img width = "400" src="Image/gradientMultdirectional.png">
 
 **Both** - Use both mask together.
 
@@ -180,13 +200,13 @@ Heres some links can be helpfull for creating your won shadow mask.
 
 [Shader facial anime Genshin Impact in blender](https://www.youtube.com/watch?v=D3nEolOME50&t=0s&ab_channel=AnimeXDchannel)
 
-But, we need a C# script to constante update the vectors of the face, se i created the Final Toon Shader Controller, a componente that need to be added, as parent or in the same game object of the render.
+But, we need a C# script to constante update the vectors of the face, i created the Final Toon Shader Controller, a componente that need to be added, as parent or in the same game object of the render.
 
 # Final Toon Shader Controller
 
 <img width = "400" src="Image/finalToonShader.jpg">
 
-<img width = "400" src="Image/finalToonShader2.jpg">
+<img width = "600" src="Image/finalToonShader2.jpg">
 
 We just need to move the game objects that represent the sun and the direction of the face to each slot, and its done.
 The other options is to change multiple materials in the same render. If the mesh has alot of submeshs or alot of differents materials for the same object, you can use this script to change all material as one. Click the Start editing to change the values and Stop editing when is done.
