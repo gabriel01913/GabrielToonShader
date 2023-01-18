@@ -7,13 +7,13 @@
   - [Genshin Style](./GTShader_Manual.md#genshin-style)
   - [Guilty Gear Strive Style](./GTShader_Manual.md#guilt-gear-strive-style)
 - [The Shader](./GTShader_Manual.md#the-shader)
- - [Configuration](./GTShader_Manual.md#configuration)
+  - [Configuration](./GTShader_Manual.md#configuration)
   - [Shader Worflow](./GTShader_Manual.md##shader-worflow)
   - [Render Face](./GTShader_Manual.md##render-face)
   - [Surface Type](./GTShader_Manual.md##surface-type)
   - [Receive Shadows](./GTShader_Manual.md##receive-shadows)
 - [Is Face?](./GTShader_Manual.md##is-face?)
-
+- [Final Toon Shader Controller](./GTShader_Manual.md##final-toon-shader-controller)
 
 # What we trying to acomplish?
 
@@ -129,7 +129,31 @@ When you make the shadows a harsh change without blend, artificats can appear, a
 
 <img width = "400" src="Image/faceArtifacts.jpg">
 
+[Source](https://www.4gamer.net/games/216/G021678/20140703095/)
+
 Genshin workflow minimaze this by using a texture as a shadow mask ramp, especific for the face, so you bypass the artifacts. Arc System dont use texture, **they change the normals vectors for each vertex in the face, by hand**, (personal tough: so much respect for their work!!).
 
 <img width = "400" src="Image/genshinfacemask.jpg">
 Example of the genshin mask.
+
+By enable this option, will appear new options and the texture slot for this mask.
+
+<img width = "400" src="Image/shaderEditorTextureShadowMask2.jpg">
+
+## Shadow Mask Options
+
+**Mask Vertical** - This is a mask for the shadow in the face, but only in vertical position, theres no up down shadows.
+
+<img width = "400" src="Image/genshinShadowMask.gif">
+Shadow Mask Ramp example.
+
+<img width = "400" src="Image/genshinShadowMask2.gif">
+With Color.
+
+**Mask Horizontal** - 
+
+**Both** - Use the both mask together.
+
+## Enable Shadow Mask Gradient
+
+# Final Toon Shader Controller
