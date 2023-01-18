@@ -7,7 +7,7 @@
   - [Genshin Style](./GTShader_Manual.md#genshin-style)
   - [Guilty Gear Strive Style](./GTShader_Manual.md#guilt-gear-strive-style)
 - [The Shader](./GTShader_Manual.md#the-shader)
-  - [Configuration](./GTShader_Manual.md##configuration)
+  - [Configuration](./GTShader_Manual.md#configuration)
   - [Shader Worflow](./GTShader_Manual.md##shader-worflow)
   - [Render Face](./GTShader_Manual.md##render-face)
   - [Surface Type](./GTShader_Manual.md##surface-type)
