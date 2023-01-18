@@ -131,7 +131,7 @@ This option will enable/disable the material to use a shadow mask texture for th
 
 # Shadow Mask
 
-This option will enable/disable the shadow mask texture.
+"Is Face?" option, in the configuration section, will enable/disable the shadow mask texture.
 
 When you make the shadows a harsh change without blend, artificats can appear, and the face is the most commum place to this to happen.
 
