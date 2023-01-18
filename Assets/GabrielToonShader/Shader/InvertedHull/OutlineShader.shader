@@ -1,4 +1,4 @@
-Shader "Unlit/OutlineShader"
+Shader "GabrielShaders/OutlineShader"
 {
     Properties
     {

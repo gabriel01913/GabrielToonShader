@@ -1,4 +1,4 @@
-Shader "Unlit/FinalToonShader"
+Shader "GabrielShaders/ToonShader"
 {
     Properties
     {
