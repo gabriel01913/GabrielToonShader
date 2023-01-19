@@ -123,7 +123,9 @@ Additive blend example
 ## Alpha Clip
 
 This option will enable/disable the material to clip the fragments, based on a texture mask. When enable new options will appear.
+
 **Alpha Clip Channel** - In wich texture alpha channel has the mask for the clip.
+
 **Clip Threshold** - This is the clip threshold.
 
 <img width = "400" src="Image/alphaclip.jpg">
@@ -136,14 +138,53 @@ This option will enable/disable the material to receive shadows casted by others
 
 This option will enable/disable the material to use a shadow mask texture for the face, instead of the normal lambert calculation.
 
-[Click here for mor information](./GTShader_Manual.md#shadow-mask)
+[Click here for more information](./GTShader_Manual.md#shadow-mask)
 
 # Textures
+
+<img width = "400" src="Image/shaderEditorTexture.jpg">
+
 This section is where you inform the textures.
 
 **Base Texture** - The base color map, lit map, albedo map, theres alot of name for this map, but is the map theres has the lit color of the material. RGB is the colors, and Alpha is genshin workflow is the default for the alpha clip mask, in Arc System workflow the Alpha channel is used for fresnel light intensity, black dont have fresnel white has full intensity.
 
 **Emission Texture** - The emission map, is the texture that contains the emission information. The RGB contains the colors, and Alpha channel the mask.
+
+**Detail Texture** - The detail texture, is the texture that contains the details information. The RGB contains the colors. This texture is multiply by the Base texture, so normaly the details are in black and the rest of the texture is white.
+
+**Normal Map** - The normals map, is the texture that contains data from the normals of the mesh. Theres a process to save in a texture the normals of a high poly count mesh, so you can lower the poly counts but, mantein the details of the normals, this process results in the normal map, so the shader will use the texture informartion when calculate the mesh normals.
+
+**Height Map** - The height map, is a texture that contains data to a process called paralax, that give a fake impression of deep in the mesh.
+
+If "Is Face?" is enabled two new texture slot will appear, to slot the vertical and multidirectional shadow mask textures, respectivily. For more information of this textures [click here](./GTShader_Manual.md#shadow-mask).
+
+<img width = "400" src="Image/shaderEditorTextureShadowMask.jpg">
+
+If "GG Strive" workflow is set, new texture slot will appear.
+
+<img width = "400" src="Image/shaderEditorTextureGG.jpg">
+
+**SSS Texture** - Is the "Sub Surface Scattering" texture of the Arc System workflow. The RGB contains the unlit colors of the mes, and the Alpha Channel is not in use.
+
+**ILM Texture** - Is the ilumination texture, every channel has differences usage to manipulate ilumination data, so lets breakdown.
+
+All texture range values from 0 to 1, black to white.
+
+  - Red Channel contains the intensity of the specular highlight. The value range from 0 to 1(black to white), and are multiply by specular final result. So black means no specular.
+
+<img width = "800" src="Image/ilmRC.png">
+
+  - Green Channel contains a shaded threshold, to define if the area is lit or unlit. 1 means always lit, 0.5 is the default value so lambert will define if is lit or not, 0.25 or lower will make the area unlit, and values below 0.1 will apply the dark shadow color.
+
+<img width = "800" src="Image/ilmGC.png">
+
+  - Blue Channel contains the highlight threshold, to define if the area can have or not highlight, 1 mean always has highlight, 0.5 is the default value so Blinn–Phong will define if is on highlight or not, 0 means no highlight.
+
+<img width = "800" src="Image/ilmBC.png">
+
+  - Alpha Channel contains the inner lines, lines that is hand drawn by the artist. And yes is always in square, because Arc System use a method of square UV so inners lines and textures never breaks continuity.
+
+<img width = "800" src="Image/ilmAC.jpg">
 
 # Shadow Mask
 
@@ -212,3 +253,4 @@ We just need to move the game objects that represent the sun and the direction o
 The other options is to change multiple materials in the same render. If the mesh has alot of submeshs or alot of differents materials for the same object, you can use this script to change all material as one. Click the Start editing to change the values and Stop editing when is done.
 
 The script will search for materials with the ToonShader shader, in the game object and its childs, but not parents.
+

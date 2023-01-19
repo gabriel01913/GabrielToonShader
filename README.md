@@ -21,3 +21,20 @@ This repository has a manual, you can acess here:
 
 [Click Here for better quality](https://youtu.be/DzK9NVt1i4U)
 
+**Genshin without Shader**
+
+<img width = "800" src="Manual/Image/withoutShader2.jpg">
+
+
+**Genshin with Shader**
+
+<img width = "800" src="Manual/Image/withtShader2.jpg">
+
+**Guilty Gear without Shader**
+
+<img width = "800" src="Manual/Image/withoutShader.jpg">
+
+
+**Guilty Gear with Shader**
+
+<img width = "800" src="Manual/Image/withtShader.jpg">
