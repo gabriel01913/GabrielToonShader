@@ -142,7 +142,7 @@ This option will enable/disable the material to use a shadow mask texture for th
 
 # Textures
 
-<img width = "400" src="Image/shaderEditorTexture.jpg">
+<img width = "600" src="Image/shaderEditorTexture.jpg">
 
 This section is where you inform the textures.
 
@@ -158,11 +158,11 @@ This section is where you inform the textures.
 
 If "Is Face?" is enabled two new texture slot will appear, to slot the vertical and multidirectional shadow mask textures, respectivily. For more information of this textures [click here](./GTShader_Manual.md#shadow-mask).
 
-<img width = "400" src="Image/shaderEditorTextureShadowMask.jpg">
+<img width = "600" src="Image/shaderEditorTextureShadowMask.jpg">
 
 If "GG Strive" workflow is set, new texture slot will appear.
 
-<img width = "400" src="Image/shaderEditorTextureGG.jpg">
+<img width = "600" src="Image/shaderEditorTextureGG.jpg">
 
 **SSS Texture** - Is the "Sub Surface Scattering" texture of the Arc System workflow. The RGB contains the unlit colors of the mes, and the Alpha Channel is not in use.
 
@@ -192,7 +192,7 @@ All texture range values from 0 to 1, black to white.
 
 When you make the shadows a harsh change without blend, artificats can appear, and the face is the most commum place to this to happen.
 
-<img width = "400" src="Image/faceArtifacts.jpg">
+<img width = "600" src="Image/faceArtifacts.jpg">
 
 [Source](https://www.4gamer.net/games/216/G021678/20140703095/)
 

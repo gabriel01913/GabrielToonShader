@@ -28,7 +28,7 @@ This repository has a manual, you can acess here:
 
 **Genshin with Shader**
 
-<img width = "800" src="Manual/Image/withtShader2.jpg">
+<img width = "800" src="Manual/Image/withShader2.jpg">
 
 **Guilty Gear without Shader**
 
@@ -37,4 +37,4 @@ This repository has a manual, you can acess here:
 
 **Guilty Gear with Shader**
 
-<img width = "800" src="Manual/Image/withtShader.jpg">
+<img width = "800" src="Manual/Image/withShader.jpg">
