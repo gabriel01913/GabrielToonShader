@@ -14,6 +14,12 @@
   - [Receive Shadows](./GTShader_Manual.md#receive-shadows)
   - [Is Face](./GTShader_Manual.md#is-face)
 - [Textures](./GTShader_Manual.md#textures)
+- [Color Ajust](./GTShader_Manual.md#colors-ajust)
+- [Ramp Ajust](./GTShader_Manual.md#ramp-ajust)
+- [Other Options](./GTShader_Manual.md#other-options)
+  - [Distortion Vertex](./GTShader_Manual.md#distortion-vertex)
+  - [Custom UV](./GTShader_Manual.md#custom-uv)
+- [Debug Tools](./GTShader_Manual.md#debug-tools)
 - [Shadow Mask](./GTShader_Manual.md#shadow-mask)
   - [Shadow Mask Options](./GTShader_Manual.md#shadow-mask-options)
 - [Final Toon Shader Controller](./GTShader_Manual.md#final-toon-shader-controller)
@@ -185,6 +191,42 @@ All texture range values from 0 to 1, black to white.
   - Alpha Channel contains the inner lines, lines that is hand drawn by the artist. And yes is always in square, because Arc System use a method of square UV so inners lines and textures never breaks continuity.
 
 <img width = "800" src="Image/ilmAC.jpg">
+
+# Colors Ajust
+
+In this section you can ajust the output colors, by giving a color tint, change the intensity or saturation.
+
+In additional colors you can enable/disable two ramps colors, that is the fresnel light and the specular highlight, and, give the same ajust as the previous colors.
+
+# Ramp Ajust
+
+In this section you can just the ramp values so you can have more control over the render.
+
+# Other Options
+
+This section we have some features that i add think is useful to achieve a good anime render and give a little more control over the mesh.
+
+## Distortion Vertex
+
+This option on enabling remove the projection from the camera on this material, so the object looks like is orthographic in relation to the camera, so give a flat felling, so appears more like is hand drawn.
+
+## Custom UV
+
+This configuration on enable give you the option to change the UV index for the texture sample. This is useful if you gona use differents UVs for differents textures.
+
+# Debug Tools
+
+When enable the option "Debug", will can visualize some debug options that the shader provides. The options are:
+
+  - Light Ramps
+    - Main Light - Output the ramp of the directional light, only works with one directional light.
+    - Additional Light - Output the additional lights mask, as point light, spot lights, etc.
+    - Shadow Ramp - Output the lambert shadows ramps.
+    - Specular Ramp - Output the Bling-Phong ramp.
+    - Fresnel Ramp - Output the fresnel ramp.
+    - Face Shadow Mask - Output the face shadow mask.
+  - Vertex Colors - Output the vertex colors, you can choose channels individually.
+  - ILM Texture - Output the ilm channels colors, you can choose channels individually, plus the base alpha channel.
 
 # Shadow Mask
 
