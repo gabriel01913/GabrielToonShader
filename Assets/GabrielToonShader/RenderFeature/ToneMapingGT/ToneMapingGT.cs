@@ -7,12 +7,17 @@ public class ToneMapingGT : ScriptableRendererFeature
     [System.Serializable]
     public class ToneMapingGTSettings{
         public Material material;
+        [Range(1,100)]
         public float maximumBrightness = 1;
-        [Range(0,1)]
+        [Range(0.01f,1)]
         public float contrast = 1;
+        [Range(0,3)]
         public float lienarStart = 0.22f;
+        [Range(0,1)]
         public float linearLenght = 0.4f;
+        [Range(1,3)]
         public float blackThigness = 1.33f;
+        [Range(-1,1)]
         public float b = 0;
     }
     class ToneMapingGTPass : ScriptableRenderPass
