@@ -17,12 +17,18 @@
 - [Color Ajust](./GTShader_Manual.md#colors-ajust)
 - [Ramp Ajust](./GTShader_Manual.md#ramp-ajust)
 - [Other Options](./GTShader_Manual.md#other-options)
+  - [Additional Light Color Replace](./GTShader_Manual.md#additional-light-color-replace)
   - [Distortion Vertex](./GTShader_Manual.md#distortion-vertex)
   - [Custom UV](./GTShader_Manual.md#custom-uv)
 - [Debug Tools](./GTShader_Manual.md#debug-tools)
 - [Shadow Mask](./GTShader_Manual.md#shadow-mask)
   - [Shadow Mask Options](./GTShader_Manual.md#shadow-mask-options)
 - [Final Toon Shader Controller](./GTShader_Manual.md#final-toon-shader-controller)
+- [Vertex Colors](./GTShader_Manual.md#vertex-colors)
+- [Outline](./GTShader_Manual.md#outline)
+  - [Setup Outline](./GTShader_Manual.md#setup-outline)
+  - [Outline Configuration](./GTShader_Manual.md#outline-configuration)
+- [ToneMapping](./GTShader_Manual.md#ToneMapping)
 
 # What we trying to acomplish?
 
@@ -240,7 +246,6 @@ This option enable/disable additional lights(point light, spot light, etc.) to r
 
 <img width = "800" src="Image/replaceColor.gif">
 
-
 ## Distortion Vertex
 
 This option on enabling remove the projection from the camera on this material, so the object looks like is orthographic in relation to the camera, so give a flat felling, so appears more like is hand drawn.
@@ -336,3 +341,89 @@ The other options is to change multiple materials in the same render. If the mes
 
 The script will search for materials with the ToonShader shader, in the game object and its childs, but not parents.
 
+# Outline
+
+<img width = "600" src="Image/outlineShader.jpg">
+
+This repository has a outline shader that use the inverted hull method. You can acess the shader in the Shader menu in the material, in the section **"GabrielShaders"**.
+
+The inverted hull method redraw the mesh with front faces culling and moving the fragments by their normal directions and depth, thats making some fragments appears in front of the principal mesh, but the majority away from the mesh, making a effect thats fells like are draw lines arround the character edges. This effect is really expensive because redraw the same mesh twice.
+
+This method only works well when the character is a one single continuity mesh, if the character has submeshes this effect can work but can appears artifact because of the discontinuty in the vertices.
+
+<img width = "600" src="Image/comparisionOutline.jpg">
+
+## Setup Outline
+
+Too add the shader create a new material with this shader and add to the list of the materia of the renderer component.
+
+<img width = "600" src="Image/outlineSetup.jpg">
+
+You can add a render feature and apply this shader as a override.
+
+<img width = "600" src="Image/outlineSetup2.jpg">
+
+## Outline Configuration
+
+**Outline Size** - This configuration ajust the outline size.
+
+**Outline Color** - This configuration ajust the outline color.
+
+**Depth Offset** - This configuration add a value to the depth value, changing this value offset the depth so can remove or add details on the outline.
+
+**Enable Camera Distance Mult** - This configuration enable the outline size are multiple by the camera distance, so bigger outlines when away from the camera, lower when closer to the camera.
+
+**Texture Color Mult** - This configuration enable/disable a texture color for the outline, so differents areas of the mesh can have differentes colors.
+
+**Base Texture** - The texture to be sampled to defines the outline color.
+
+**Distortion Factor** - This effect is to remove perspective of the outline, to match with the character if are using the same feature.
+
+# Vertex Colors
+
+Vertex colors in GG Strive are used as data to manipulate some effects. The values ranges from 0 to 1 (black to white).
+
+**Red Channel** - This channel is another threshold to informa if the fragment is lit or unlit, 1 is the default value so no manipulation, 0.5 is always unlit, 0 is always dark shadows.
+
+**Green Channel** - I do not suport this channel function in this shader, but, the original intention are to shade by the depth of the fragment, far fragments from the camera are more like to be in unlit color.
+
+**Blue Channel** - Is used to manipulate the outline depth, the vertex value is multiple by the depth, 0 means no outline and 1 can have outline.
+
+<img width = "600" src="Image/outlineChannel.jpg">
+You can achive effect like this, by removing the outlines.
+
+<img width = "600" src="Image/outlineChannel2.jpg">
+This show that arround the mouth is black, so no outline will appear in this area.
+
+**Alpha Channel** - Is used to manipulate the outline size, the default value is 0.5, 0 means no outline and 1 means bigger outline.
+
+<img width = "600" src="Image/outlineChannel3.jpg">
+The majority of the channel is in grey, 0.5 value, but has some points in black to remove outlines. 
+
+# ToneMapping
+
+This repository contains the Gran Turismo ToneMapping, as a post effect, to achieve a more saturate visual, closer to the anime visual. The idea for using this tonemapping is not mine, i saw this [post](https://www.artstation.com/artwork/wJZ4Gg) that used this tonemapping to achieve a simular result, i liked and replicated.
+
+<img width = "600" src="Image/toneMapping2.jpg">
+
+<img width = "600" src="Image/toneMapping3.jpg">
+
+## ToneMapping Configuration
+
+To add this effect you need to add a new render feature in the URP Render Data.
+
+<img width = "600" src="Image/toneMapping.jpg">
+
+**Material** - Is provided in the path *"Assets\GabrielToonShader\RenderFeature\ToneMapingGT"*, use this.
+
+**Maximum Brightness** - This value is the maximum bright value possible, this will make the imagem dark if the value is lower, default value is 1.
+
+**Contrast** - Change the contrats of the final imagem.
+
+**Linear Start** - Changing when the colors start to be linear.
+
+**Linear Lenght** - This changing for how much the linear ramp expand.
+
+**Black Thigness** - This value change the maximum dark value, lowering this value make the dark pixels more dark.
+
+**B** - This is the maximum dark value possible, lowering this value make the image dark, and vice versa, default value is 0.
