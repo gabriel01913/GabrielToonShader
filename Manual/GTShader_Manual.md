@@ -1,6 +1,4 @@
-# Gabriel Toon Shader Manual
-
-**WORK IN PROGRESS**
+# Gabriel Toon Shader Manual V1.0
 
 # Sumary
 - [What we trying to acomplish?](./GTShader_Manual.md#what-we-trying-to-acomplish?)
@@ -351,7 +349,7 @@ The inverted hull method redraw the mesh with front faces culling and moving the
 
 This method only works well when the character is a one single continuity mesh, if the character has submeshes this effect can work but can appears artifact because of the discontinuty in the vertices.
 
-<img width = "600" src="Image/comparisionOutline.jpg">
+<img width = "800" src="Image/comparisionOutline.jpg">
 
 ## Setup Outline
 
@@ -390,10 +388,12 @@ Vertex colors in GG Strive are used as data to manipulate some effects. The valu
 **Blue Channel** - Is used to manipulate the outline depth, the vertex value is multiple by the depth, 0 means no outline and 1 can have outline.
 
 <img width = "600" src="Image/outlineChannel.jpg">
-You can achive effect like this, by removing the outlines.
+You can achive effect like this, by removing the outlines. [Source](https://www.4gamer.net/games/216/G021678/20140703095/)
+
 
 <img width = "600" src="Image/outlineChannel2.jpg">
 This show that arround the mouth is black, so no outline will appear in this area.
+
 
 **Alpha Channel** - Is used to manipulate the outline size, the default value is 0.5, 0 means no outline and 1 means bigger outline.
 
@@ -405,8 +405,10 @@ The majority of the channel is in grey, 0.5 value, but has some points in black 
 This repository contains the Gran Turismo ToneMapping, as a post effect, to achieve a more saturate visual, closer to the anime visual. The idea for using this tonemapping is not mine, i saw this [post](https://www.artstation.com/artwork/wJZ4Gg) that used this tonemapping to achieve a simular result, i liked and replicated.
 
 <img width = "600" src="Image/toneMapping2.jpg">
+ToneMapping enable.
 
 <img width = "600" src="Image/toneMapping3.jpg">
+ToneMapping disable.
 
 ## ToneMapping Configuration
 
