@@ -702,12 +702,13 @@ half3 ToonColor(InputData inputData, DotData dotInputs, LightInputs lightInputs,
         {
             float ilmChannel = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMChannel);
             half2 debugilmUV = half2(0,0);
+            float debugCustomILMUV = 0;
             switch(ilmChannel)
             {
                 case 0:
                     #if defined(_CUSTOM_UV)
-                    float customILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
-                    debugilmUV = CustomUV(customILMUV, output);
+                    debugCustomILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
+                    debugilmUV = CustomUV(debugCustomILMUV, output);
                     color = tex2D(_ILM, debugilmUV.xy).rgb;
                     #else
                     color = tex2D(_ILM, output.uv0.xy).rgb;
@@ -715,8 +716,8 @@ half3 ToonColor(InputData inputData, DotData dotInputs, LightInputs lightInputs,
                     break;
                 case 1:
                     #if defined(_CUSTOM_UV)
-                    float customILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
-                    debugilmUV = CustomUV(customILMUV, output);
+                    debugCustomILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
+                    debugilmUV = CustomUV(debugCustomILMUV, output);
                     color = tex2D(_ILM, debugilmUV.xy).r;
                     #else
                     color = tex2D(_ILM, output.uv0.xy).rgb;
@@ -724,8 +725,8 @@ half3 ToonColor(InputData inputData, DotData dotInputs, LightInputs lightInputs,
                     break;
                 case 2:
                     #if defined(_CUSTOM_UV)
-                    float customILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
-                    debugilmUV = CustomUV(customILMUV, output);
+                    debugCustomILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
+                    debugilmUV = CustomUV(debugCustomILMUV, output);
                     color = tex2D(_ILM, debugilmUV.xy).g;
                     #else
                     color = tex2D(_ILM, output.uv0.xy).rgb;
@@ -733,8 +734,8 @@ half3 ToonColor(InputData inputData, DotData dotInputs, LightInputs lightInputs,
                     break;
                 case 3:
                     #if defined(_CUSTOM_UV)
-                    float customILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
-                    debugilmUV = CustomUV(customILMUV, output);
+                    debugCustomILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
+                    debugilmUV = CustomUV(debugCustomILMUV, output);
                     color = tex2D(_ILM, debugilmUV.xy).b;
                     #else
                     color = tex2D(_ILM, output.uv0.xy).rgb;
@@ -742,8 +743,8 @@ half3 ToonColor(InputData inputData, DotData dotInputs, LightInputs lightInputs,
                     break;
                 case 4:
                     #if defined(_CUSTOM_UV)
-                    float customILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
-                    debugilmUV = CustomUV(customILMUV, output);
+                    debugCustomILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
+                    debugilmUV = CustomUV(debugCustomILMUV, output);
                     color = tex2D(_ILM, debugilmUV.xy).a;
                     #else
                     color = tex2D(_ILM, output.uv0.xy).rgb;
@@ -751,8 +752,8 @@ half3 ToonColor(InputData inputData, DotData dotInputs, LightInputs lightInputs,
                     break;
                 case 5:
                     #if defined(_CUSTOM_UV)
-                    float customILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
-                    debugilmUV = CustomUV(customILMUV, output);
+                    debugCustomILMUV = UNITY_ACCESS_INSTANCED_PROP(MaterialPropertyMetadata, _ILMUV);
+                    debugilmUV = CustomUV(debugCustomILMUV, output);
                     color = tex2D(_BaseColor, debugilmUV.xy).a;
                     #else
                     color = tex2D(_ILM, output.uv0.xy).rgb;
