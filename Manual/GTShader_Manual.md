@@ -204,7 +204,7 @@ In additional colors you can enable/disable two ramps colors, that is the fresne
 
 In this section you can just the ramp values so you can have more control over the render.
 
-<img width = "800" src="Image/rampAjust.gif">
+<img width = "800" src="Image/rampAjust.jpg">
 
 **Shade Blend Threshold** - This threshold is the blend of the shading, less value more harsh the change of lit and unlit, more value more blend between the colors.
 
@@ -217,7 +217,9 @@ In this section you can just the ramp values so you can have more control over t
 You can enable/disable, and ajust specular highlight and fresnel in this section.
 
 **Fresnel Size** - This control the size of the fresnel.
+
 **Fresnel Threshold** - This controle the fresnel blend, increase value to remove the blend.
+
 **Frenel Only Shadows** - This options make fresnel appears only in shadows fragments.
 
 <img width = "800" src="Image/fresnelAjust.gif">
@@ -232,13 +234,24 @@ You can enable/disable, and ajust specular highlight and fresnel in this section
 
 This section we have some features that i add think is useful to achieve a good anime render and give a little more control over the mesh.
 
+## Additional Light Color Replace
+
+This option enable/disable additional lights(point light, spot light, etc.) to replace the base color with their own colors. When multiple additional lights are present, the shader will prioritise the closer additional lights.
+
+<img width = "800" src="Image/replaceColor.gif">
+
+
 ## Distortion Vertex
 
 This option on enabling remove the projection from the camera on this material, so the object looks like is orthographic in relation to the camera, so give a flat felling, so appears more like is hand drawn.
 
+<img width = "800" src="Image/perspectiveRemoval.gif">
+
 ## Custom UV
 
 This configuration on enable give you the option to change the UV index for the texture sample. This is useful if you gona use differents UVs for differents textures.
+
+<img width = "800" src="Image/customUV.jpg">
 
 # Debug Tools
 
@@ -317,8 +330,9 @@ But, we need a C# script to constante update the vectors of the face, i created 
 
 <img width = "600" src="Image/finalToonShader2.jpg">
 
-We just need to move the game objects that represent the sun and the direction of the face to each slot, and its done.
-The other options is to change multiple materials in the same render. If the mesh has alot of submeshs or alot of differents materials for the same object, you can use this script to change all material as one. Click the Start editing to change the values and Stop editing when is done.
+To configure the shadow mask we just need to move the game object that represent the sun, and the game object that represents direction of the face, to each slot, and its done. 
+
+The other options is to change multiple materials in the same render. If the mesh has alot of submeshs or alot of differents materials for the same object, you can use this script to change all material as one. Click the **"Start editing"** button to change the values and **"Stop editing"** when is done.
 
 The script will search for materials with the ToonShader shader, in the game object and its childs, but not parents.
 
