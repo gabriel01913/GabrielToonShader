@@ -116,7 +116,7 @@ This option is to choose the surface type.
 
 **Transparent**: This option the material is treated as transparent object, and will enable the blend mode option.
 
-<img width = "400" src="Image/shaderEditorConfigurationBlendMode.jpg">
+<img width = "600" src="Image/shaderEditorConfigurationBlendMode.jpg">
 
 The transparency is controlled by the alpha channel of the base color.
 
@@ -134,7 +134,7 @@ This option will enable/disable the material to clip the fragments, based on a t
 
 **Clip Threshold** - This is the clip threshold.
 
-<img width = "400" src="Image/alphaclip.jpg">
+<img width = "600" src="Image/alphaclip.jpg">
 
 ## Receive Shadows
 
@@ -196,11 +196,37 @@ All texture range values from 0 to 1, black to white.
 
 In this section you can ajust the output colors, by giving a color tint, change the intensity or saturation.
 
+<img width = "800" src="Image/baseColor.jpg">
+
 In additional colors you can enable/disable two ramps colors, that is the fresnel light and the specular highlight, and, give the same ajust as the previous colors.
 
 # Ramp Ajust
 
 In this section you can just the ramp values so you can have more control over the render.
+
+<img width = "800" src="Image/rampAjust.gif">
+
+**Shade Blend Threshold** - This threshold is the blend of the shading, less value more harsh the change of lit and unlit, more value more blend between the colors.
+
+**Shadow Offset** - This offset increase the value that defines if the fragment is lit our unlit, increasing the value makes more susceptible to be in shadows, and vice versa.
+
+**Second Shadow Offset** - This offset increase the value that defines if the fragment is in dark shadows, increasing the value makes more susceptible to be in dark shadows, and vice versa.
+
+<img width = "800" src="Image/shadeOffset.gif">
+
+You can enable/disable, and ajust specular highlight and fresnel in this section.
+
+**Fresnel Size** - This control the size of the fresnel.
+**Fresnel Threshold** - This controle the fresnel blend, increase value to remove the blend.
+**Frenel Only Shadows** - This options make fresnel appears only in shadows fragments.
+
+<img width = "800" src="Image/fresnelAjust.gif">
+
+**Specular Sizer** - This control the Specular sizer.
+
+<img width = "800" src="Image/specularAjust.gif">
+
+**Remap Shadow Face Rotation** - This value remap the UV rotation range. Only change this value if you want to make the rotation in the multdirectional shadow mask to rotate faster/slower, in relation to the sun. The default value makes the rotation follow the same angles as the directional light.
 
 # Other Options
 
