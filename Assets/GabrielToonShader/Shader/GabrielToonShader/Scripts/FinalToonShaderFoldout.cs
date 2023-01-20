@@ -10,6 +10,9 @@ namespace FinalToonShader{
         UV2 = 2,
         UV3 = 3,
         UV4 = 4,
+        UV5 = 5,
+        UV6 = 6,
+        UV7 = 7,
     }
 
     public enum ShadowMaskOptions

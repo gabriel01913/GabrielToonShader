@@ -24,7 +24,8 @@ CBUFFER_START(UnityPerMaterial)
     int _ShadowMaskAjust;
     float _FSMEnum;
     float _DistortionFactor;    
-    float4 _BaseColor_ST;    
+    float4 _BaseColor_ST;
+    TEXTURE_UV_DECLARATION(_BaseColor);   
     float4 _ShadowColor_ST;
     TEXTURE_UV_DECLARATION(_ShadowColor);    
     float4 _FaceShadowMask_ST;
@@ -113,7 +114,8 @@ UNITY_INSTANCING_BUFFER_START(MaterialPropertyMetadata)
     UNITY_DEFINE_INSTANCED_PROP(int, _ShadowMaskAjust);
     UNITY_DEFINE_INSTANCED_PROP(float, _FSMEnum);
     UNITY_DEFINE_INSTANCED_PROP(float _DistortionFactor);    
-    UNITY_DEFINE_INSTANCED_PROP(float4, _BaseColor_ST);    
+    UNITY_DEFINE_INSTANCED_PROP(float4, _BaseColor_ST);
+    UNITY_DEFINE_INSTANCED_PROP(float, _BaseColorUV);    
     UNITY_DEFINE_INSTANCED_PROP(float4, _ShadowColor_ST);
     UNITY_DEFINE_INSTANCED_PROP(float, _ShadowColorUV);    
     UNITY_DEFINE_INSTANCED_PROP(float4, _FaceShadowMask_ST);
@@ -199,7 +201,8 @@ UNITY_INSTANCING_BUFFER_END(MaterialPropertyMetadata)
 #define _ShadowMaskAjust     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(int, Metadata_ShadowMaskAjust)
 #define _FSMEnum     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(float, Metadata_FSMEnum)
 #define _DistortionFactor     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(float Metadata_DistortionFactor)  
-#define _BaseColor_ST     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(float4, Metadata_BaseColor_ST)   
+#define _BaseColor_ST     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(float4, Metadata_BaseColor_ST)
+#define _BaseColorUV     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(float4, Metadata_BaseColorUV)     
 #define _ShadowColor_ST     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(float4, Metadata_ShadowColor_ST)
 #define _ShadowColorUV     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(float, Metadata_ShadowColorUV)   
 #define FaceShadowMask_ST     UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO(float4, Metadata_FaceShadowMask_ST)

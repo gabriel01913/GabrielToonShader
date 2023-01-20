@@ -4,13 +4,14 @@
 struct appdata {
 	float4 vertex : POSITION;
     float4 uv0 : TEXCOORD0;
+    float2 uv1                : TEXCOORD1;
+    float2 uv2                : TEXCOORD2;
     #if defined (_CUSTOM_UV)
+    float2 uv3                : TEXCOORD3;
     float2 uv4                : TEXCOORD4;
     float2 uv5                : TEXCOORD5;
     float2 uv6                : TEXCOORD6;
     float2 uv7                : TEXCOORD7;
-    float2 uv01                : TEXCOORD8;
-    float2 uv02                : TEXCOORD9;
     #endif
 	UNITY_VERTEX_INPUT_INSTANCE_ID
 };
@@ -18,13 +19,14 @@ struct appdata {
 struct Interpolators {
 	float4 clipPos : SV_POSITION;
     float4 uv0 : TEXCOORD0;
+    float2 uv1                : TEXCOORD1;
+    float2 uv2                : TEXCOORD2;
     #if defined (_CUSTOM_UV)
+    float2 uv3                : TEXCOORD3;
     float2 uv4                : TEXCOORD4;
     float2 uv5                : TEXCOORD5;
     float2 uv6                : TEXCOORD6;
     float2 uv7                : TEXCOORD7;
-    float2 uv01                : TEXCOORD8;
-    float2 uv02                : TEXCOORD9;
     #endif
 };
 
@@ -38,10 +40,10 @@ half2 CustomUV(float input, Interpolators output)
             uv = output.uv0.xy;
         break;
         case 1:
-            uv = output.uv01.xy;
+            uv = output.uv1.xy;
         break;
         case 2:
-            uv = output.uv02.xy;
+            uv = output.uv2.xy;
         break;
         case 3:
             uv = output.uv3.xy;
@@ -136,13 +138,14 @@ Interpolators vert (appdata i) {
 		output.clipPos.z =
 			max(output.clipPos.z, output.clipPos.w * UNITY_NEAR_CLIP_VALUE);
 	#endif
+    output.uv1 = i.uv1;
+    output.uv2 = i.uv2;
     #if defined (_CUSTOM_UV)
+    output.uv3 = i.uv3;
     output.uv4 = i.uv4;
     output.uv5 = i.uv5;
     output.uv6 = i.uv6;
     output.uv7 = i.uv7;
-    output.uv01 = i.uv01;
-    output.uv02 = i.uv02;
     #endif
 
 	return output;

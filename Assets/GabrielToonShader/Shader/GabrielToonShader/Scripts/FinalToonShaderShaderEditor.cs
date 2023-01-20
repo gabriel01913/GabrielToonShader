@@ -226,7 +226,7 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
     #region Colors Foldout
     dictionaryFoldouts[target].colorOptionsFoldout = EditorGUILayout.Foldout(
         dictionaryFoldouts[target].colorOptionsFoldout, 
-        new GUIContent(dictionaryFoldouts[target].labels[3], dictionaryFoldouts[target].toolTips[3])
+        new GUIContent(dictionaryFoldouts[target].labels[2], dictionaryFoldouts[target].toolTips[2])
     );       
     if(dictionaryFoldouts[target].colorOptionsFoldout)
     {
@@ -253,7 +253,7 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
     #region Additional Colors Foldout
     dictionaryFoldouts[target].additionalColorsFoldout = EditorGUILayout.Foldout(
         dictionaryFoldouts[target].additionalColorsFoldout, 
-        new GUIContent(dictionaryFoldouts[target].labels[4], dictionaryFoldouts[target].toolTips[4])
+        new GUIContent(dictionaryFoldouts[target].labels[3], dictionaryFoldouts[target].toolTips[3])
     );       
     if(dictionaryFoldouts[target].additionalColorsFoldout)
     {          
@@ -280,7 +280,7 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
     #region Ramp Ajust Foldout
     dictionaryFoldouts[target].rampAjustsFoldout = EditorGUILayout.Foldout(
         dictionaryFoldouts[target].rampAjustsFoldout, 
-        new GUIContent(dictionaryFoldouts[target].labels[5], dictionaryFoldouts[target].toolTips[5])
+        new GUIContent(dictionaryFoldouts[target].labels[4], dictionaryFoldouts[target].toolTips[4])
     );    
     if(dictionaryFoldouts[target].rampAjustsFoldout)
     {          
@@ -313,11 +313,14 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
     #region Others Option Foldout
     dictionaryFoldouts[target].otherOptionsFoldout = EditorGUILayout.Foldout(
         dictionaryFoldouts[target].otherOptionsFoldout, 
-        new GUIContent(dictionaryFoldouts[target].labels[6], dictionaryFoldouts[target].toolTips[6])
+        new GUIContent(dictionaryFoldouts[target].labels[5], dictionaryFoldouts[target].toolTips[5])
     );
     if(dictionaryFoldouts[target].otherOptionsFoldout)
     {
         EditorGUILayout.Space();
+
+        CreateKeywordToogle("_ADDITIONAL_LIGHT_REPLACE","Additional Light Replace Color","Enable, disable that additional light colors, replace the base color", materialEditor);
+        
         materialEditor.ShaderProperty(_DistortionFactor, new GUIContent("Distortion Vertex","CAN RESULT IN ARTIFACTS! Distortion per vertex base, to squash the mesh"));
         if(CreateKeywordToogle("_CUSTOM_UV","Custom UV","Enable, disable Custom UV Configuration", materialEditor))
         {
@@ -383,7 +386,7 @@ public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] pro
     #region Debug Foldout
     dictionaryFoldouts[target].debugFoldout = EditorGUILayout.Foldout(
         dictionaryFoldouts[target].debugFoldout, 
-        new GUIContent(dictionaryFoldouts[target].labels[7], dictionaryFoldouts[target].toolTips[7])
+        new GUIContent(dictionaryFoldouts[target].labels[6], dictionaryFoldouts[target].toolTips[6])
     );
         
     if(dictionaryFoldouts[target].debugFoldout)

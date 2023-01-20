@@ -48,7 +48,7 @@ Shader "GabrielShaders/ToonShader"
         [HideInInspector]_EmissionSaturation("Emission Color Saturation", Range(0,5)) = 1
 
         //Head        
-        _RightVector("Right Vector", Vector) = (1,0,0,0)
+        [HideInInspector]_RightVector("Right Vector", Vector) = (1,0,0,0)
         [HideInInspector]_UPVector("UP Vector", Vector) = (0,1,0,0)
         [HideInInspector]_FowardVector("Foward Vector", Vector) = (0,0,1,0)
         [HideInInspector]_SunEuler("Sun Euler", Vector) = (0,0,1,0)

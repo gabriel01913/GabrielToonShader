@@ -30,8 +30,6 @@ struct Inputs
     float2 uv5                : TEXCOORD5;
     float2 uv6                : TEXCOORD6;
     float2 uv7                : TEXCOORD7;
-    float2 uv01                : TEXCOORD8;
-    float2 uv02                : TEXCOORD9;
     #endif
     float4 color              : COLOR;
     UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -79,8 +77,6 @@ struct Interpolators
     float2 uv5                : TEXCOORD13;
     float2 uv6                : TEXCOORD14;
     float2 uv7                : TEXCOORD15;
-    float2 uv01                : TEXCOORD18;
-    float2 uv02                : TEXCOORD19;
     #endif
     UNITY_VERTEX_INPUT_INSTANCE_ID
     UNITY_VERTEX_OUTPUT_STEREO  
@@ -136,10 +132,10 @@ half2 CustomUV(float input, Interpolators output)
             uv = output.uv0.xy;
         break;
         case 1:
-            uv = output.uv01.xy;
+            uv = output.uv1.xy;
         break;
         case 2:
-            uv = output.uv02.xy;
+            uv = output.uv2.xy;
         break;
         case 3:
             uv = output.uv3.xy;
@@ -1008,8 +1004,6 @@ Interpolators vert (Inputs input)
     output.uv5 = input.uv5;
     output.uv6 = input.uv6;
     output.uv7 = input.uv7;
-    output.uv01 = input.uv01;
-    output.uv02 = input.uv02;
     #endif
     #if defined (_NORMALMAP)
         #if defined(_CUSTOM_UV)
